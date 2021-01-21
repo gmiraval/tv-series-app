@@ -4,7 +4,16 @@ import './index.css'; //styles
 import App from './App'; //componente App that we are rendering
 import reportWebVitals from './reportWebVitals';
 
-const greeting = React.createElement('h1',{}, 'Hello World!')
+//function to get current date
+const getCurrentDate = () => { //arrow function format
+//const getCurrentDate = function() { //normal function format
+  const date = new Date();
+  return date.toDateString();
+} 
+
+//jsx format. Then (under de hood) react app transforms it to React using Babel:
+const greeting = <h1>Hello World! Current date: {getCurrentDate()}</h1> 
+//curly braces in jsx let me interpret js expresion instead of string 
 
 ReactDOM.render(
   greeting,
