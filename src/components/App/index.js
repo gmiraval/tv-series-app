@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; //libreria de react
 import Intro from '../Intro'
 import './App.css';
+import 'whatwg-fetch'; ///requires -> tv-series-app$ sudo npm install whatwg-fetch --save
 
 class App extends Component {
   state = {
@@ -8,11 +9,18 @@ class App extends Component {
   }
 
   componentDidMount() { //https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-    const series = ["Vikings", "Game of Thrones"];
-    setTimeout(() => {
-      //this.setState({series: series})
-      this.setState({series}) //if const name here is the same that the state prop name you can write it this way
-    }, 2000);   //state changes after 2 secs, length goes from 0 to 2
+    fetch('http://api.tvmaze.com/search/shows?q=Vikings')
+      
+    //1st test
+    //.then((response)=>{console.log(response)}) //first test to see query @ browser console
+
+      .then(response=>response.json())
+
+    //2nd test  
+    /*   .then(json => console.log(json)) //watch result @ console */
+
+    //3rd test -update state array with response
+      .then(json => this.setState({series: json})) //we can see 10 elements -> series state updated OK
   }
 
   render() {
@@ -21,7 +29,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">TV Series List</h1>
         </header>
-        <Intro message="Here you can finde all ofo your most loved series" />
+        <Intro message="Here you can finde all of your most loved series" />
         The lenght of series array - {this.state.series.length}    
       </div>
     );
