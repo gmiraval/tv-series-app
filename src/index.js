@@ -1,7 +1,7 @@
 import React from 'react'; //libreria de react
 import ReactDOM from 'react-dom'; //glue between react & DOM
 import './index.css'; //styles
-import App from './App'; //componente App that we are rendering
+import App from './components/App'; //componente App that we are rendering
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(<App />,document.getElementById('root'));
