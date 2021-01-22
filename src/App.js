@@ -1,11 +1,6 @@
 import React, { Component } from 'react'; //libreria de react
+import Intro from './components/Intro'
 import './App.css';
-
-const Intro = (props) => (  //important JSX neeed them capitalized for custom components
-  <p className="App-Intro">
-    Our first functional component
-  </p>
-)
 
 class App extends Component {
   render() {
@@ -14,7 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">TV Series List</h1>
         </header>
-        <Intro />    
+        <Intro message="Here you can finde all ofo your most loved series" />    
       </div>
     );
   }
