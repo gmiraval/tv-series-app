@@ -7,6 +7,14 @@ class App extends Component {
     series: []
   }
 
+  componentDidMount() { //https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+    const series = ["Vikings", "Game of Thrones"];
+    setTimeout(() => {
+      //this.setState({series: series})
+      this.setState({series}) //if const name here is the same that the state prop name you can write it this way
+    }, 2000);   //state changes after 2 secs, length goes from 0 to 2
+  }
+
   render() {
     return (
       <div className="App">
