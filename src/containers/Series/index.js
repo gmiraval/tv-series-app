@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SeriesList from '../../components/SeriesList'
 
 //container component
 //https://www.newline.co/fullstack-react/p/using-presentational-and-container-components-with-redux/
@@ -29,6 +30,7 @@ class Series extends Component {
         return (
             <div>
                 The lenght of series array - {this.state.series.length}
+                <SeriesList list={this.state.series} />
             </div>
         )
     }
